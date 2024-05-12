@@ -5,8 +5,8 @@ import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.hccake.ballcat.codegen.datasource.WrappedDataSource;
 import com.hccake.ballcat.codegen.database.TableInfoMapper;
+import com.hccake.ballcat.codegen.datasource.WrappedDataSource;
 import com.hccake.ballcat.codegen.model.bo.ColumnInfo;
 import com.hccake.ballcat.codegen.model.bo.TableDetails;
 import com.hccake.ballcat.codegen.model.bo.TableInfo;
@@ -76,7 +76,7 @@ public class TableInfoQuery {
 		TableInfoMapper baseMapper = tableInfoMapperMap.get(dbType);
 		// 查询表信息
 		TableInfo tableInfo = baseMapper.queryTableInfo(tableName);
-		Assert.notNull(tableInfo,"表 {} 信息查询失败，请检查表是否存在", tableName);
+		Assert.notNull(tableInfo, "表 {} 信息查询失败，请检查表是否存在", tableName);
 
 		// 查询列信息
 		List<ColumnInfo> columnInfoList = baseMapper.listColumnInfo(tableName);

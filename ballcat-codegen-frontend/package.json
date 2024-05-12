@@ -2,7 +2,7 @@
   "name": "ballcat-codegen-ui",
   "private": true,
   "version": "1.4.0",
-  "packageManager": "pnpm@8.15.3",
+  "packageManager": "pnpm@9.1.0",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",

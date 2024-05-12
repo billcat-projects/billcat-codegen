@@ -26,12 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 模板文件目录项
@@ -299,7 +294,7 @@ public class TemplateEntryServiceImpl extends ExtendServiceImpl<TemplateEntryMap
 		Assert.notNull(oldEntry, "This is a nonexistent directory entry!");
 		// 如果更新了文件名，则进行重名校验
 		if (!filename.equals(oldEntry.getFilename())) {
-			this.duplicateNameCheck(oldEntry.getParentId(), filename);
+			this.duplicateNameCheck(oldEntry.getParentId(), filename, oldEntry.getGroupKey());
 		}
 		// 如果修改类型为模板文件或者二进制文件，则现在不能有子文件存在
 		if (!TemplateEntryTypeEnum.FOLDER.getType().equals(entryDTO.getType())) {
